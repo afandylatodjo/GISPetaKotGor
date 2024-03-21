@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	color: #ffff;
+	font-family: 'Source Sans Pro', 'Helvetica', 'Roboto Condensed', Arial, sans-serif;
+	width: 100%;
+	background: #232c31;
+	overflow-x: hidden;
+}
