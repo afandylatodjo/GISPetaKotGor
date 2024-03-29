@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import WACS from './components/WA-CS'
 import Home from './pages/Home'
 import Map from './pages/Map'
 import Tabular from './pages/Tabular'
@@ -17,6 +18,8 @@ function App() {
           <Route path='/data' element={<Tabular/>}/>
         </Routes>
       </div>
+      <WACS />
+
     </>
   )
 }

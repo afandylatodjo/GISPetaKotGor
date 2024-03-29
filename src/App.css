@@ -52,6 +52,8 @@ body {
 .header h1 {
 	color: #ffff;
 	font-family: 'Roboto Condensed', sans-serif;
+	/* text-wrap: balance;
+	word-break: break-all; */
 	cursor: default;
 	font-size: 400%;
 	text-shadow:

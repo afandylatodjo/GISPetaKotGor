@@ -1,5 +1,3 @@
-import React from "react";
-import WACS from "../components/WA-CS";
 import { Link } from "react-router-dom";
 
 const Home = () =>{
@@ -8,7 +6,7 @@ const Home = () =>{
             <main>
                 <div className="bg"></div>
                 <div className="header">
-                    <h1>SIGPetaKotGor</h1>
+                    <h1 className="text-balance break-all">SIGPetaKotGor</h1>
                     <div className="desc">
                         Sistem Informasi Geografis Pertanian Kota Gorontalo
                     </div>
@@ -31,7 +29,6 @@ const Home = () =>{
                 <div className="footer">
                     &copy; 2024 Tim KotGor, Sistem Informasi - Universitas Negeri Gorontalo. All Right Reserved
                 </div>
-                <WACS />
             </main>
 
         </>
