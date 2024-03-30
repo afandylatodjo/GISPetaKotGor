@@ -6,7 +6,6 @@
 <p>SIGPetaKotGor (Sistem Informasi Geografis Pertanian Kota Gorontalo) Merupakan Sebuah Sistem Yang Memuat Data dan Informasi Pertanian di Kota Gorontalo Dalam Bentuk Spasial dan Tabular
 </p>
 
-SIGPetaKotGor dapat dilihat di [sini](https://afandylatodjo.github.io/GISPetaKotGor)
 
 ## Teknologi
 - [![React][React.js]][React-url]
