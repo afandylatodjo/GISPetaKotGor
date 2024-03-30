@@ -55,9 +55,9 @@ const Table = () =>{
                 </tr>
             </thead>
             <tbody>
-              <Data array={filter ? filter : tableData} />
+                <Data array={filter ? filter : tableData} />
             </tbody>
-        </table>
+            </table>
     </>
        
     )
