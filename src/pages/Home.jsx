@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Hero from "../components/Hero";
 
 const Home = () =>{
     return (
@@ -18,7 +17,6 @@ const Home = () =>{
                         <Link to={"/data"}>
                             <button className="mylink">Data Tabular</button>
                         </Link>
-                        <Hero />
                     </div>
                     <div className="hr"></div>
                     <div className="desc">
