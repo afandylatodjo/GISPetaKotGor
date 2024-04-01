@@ -30,7 +30,6 @@ const Home = () =>{
                     &copy; 2024 Tim KotGor, Sistem Informasi - Universitas Negeri Gorontalo. All Right Reserved
                 </div>
             </main>
-
         </>
     )
 }

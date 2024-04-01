@@ -5,6 +5,8 @@ const tableData = [
     {"name": "fulan", "nim": "01"},
     {"name": "fulani", "nim": "02"},
     {"name": "fulana", "nim": "03"},
+    {"name": "fulano", "nim": "04"},
+    {"name": "fulane", "nim": "05"},
 ]
 
 const Data = ({array}) =>{
@@ -34,20 +36,20 @@ const Table = () =>{
 
     const searchData = () => {
         let value = search;
-        setFilter(value ? tableData.filter(e=>e.name.includes(value)) : tableData);
+        setFilter(value ? tableData.filter(e=>e.name.toLowerCase().includes(value.toLowerCase())) : tableData);
     }
 
     return(
-        <>
+    <>
+        <div className="search-table bg-white inline-flex p-0 m-0">
             <input type="text" name="search" id="search-data" 
             className="text-black"
             onChange={(e) => {
                 setSearch(e.target.value);
-            }}
-            />
-            <button onClick={() => {searchData()}}>Search</button>
-
-            <table>
+            }}/>
+            <button className="bg-slate-400 text-black p-1 m-0" onClick={() => {searchData()}}>Search</button>
+        </div>
+        <table className="table">
             <thead>
                 <tr>
                     <th>Nom</th>
@@ -57,10 +59,12 @@ const Table = () =>{
             <tbody>
                 <Data array={filter ? filter : tableData} />
             </tbody>
-            </table>
+        </table>
     </>
        
     )
 
 }
+
+
 export default Table; 
