@@ -1,12 +1,38 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PieChart from "../components/charts/PieChart";
+import BarChart from "../components/charts/BarChart";
+import { getData} from "../datas/statics/fetching";
+
 
 const Home = () =>{
+    const [toggle, setToggle] = useState(false);
+
+    const [showToggle, setShowToggle] = useState(false);
+
+    // useEffect(()=>(getData), []);
+    const fetchCallback = () =>{
+        setShowToggle(true)
+    }
+
     return (
         <>
+            <div className={`cont flex justify-center absolute z-10 transition-transform ${toggle != false ? '' : '-translate-x-[26vw] z-50'}`}>
+                <div className={`chart bg-[#232c31] w-[26vw] h-[100vh]`}>
+                    <div className="item p-4 flex-col  h-full ">
+                        <PieChart  onFetch={getData} fetchCallback={fetchCallback}/>
+                        <BarChart  onFetch={getData} fetchCallback={fetchCallback}/>
+                    </div>
+                </div>
+                <button className={`bg-[#232c31] px-1 transition ease-in duration-[1000ms] ${showToggle != false ? 'opacity-50': 'opacity-0 pointer-events-none'}`} onClick={()=>setToggle(!toggle)}>
+                    ▶
+                </button>
+            </div>
+
             <main>
                 <div className="bg"></div>
                 <div className="header">
-                    <h1 className="text-balance break-all">SIGPetaKotGor</h1>
+                    <h1 className="text-balance break-all">SIGPetaKotaGorontalo</h1>
                     <div className="desc">
                         Sistem Informasi Geografis Pertanian Kota Gorontalo
                     </div>
