@@ -11,7 +11,6 @@ const PieChart = ({onFetch, fetchCallback})=>{
     const [berasModPrice, setBerasModPrice]= useState();
     const [berasPedPrice, setBerasPedPrice]= useState();
     const [berasProdPrice, setBerasProdPrice]= useState();
-    const [fetched, setIsFetched] = useState();
 
 
     useEffect(()=>{

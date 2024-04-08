@@ -22,19 +22,23 @@ let price = {
 
 async function getData(){
     await axios.get("http://localhost:8080/getPasarTradisional").then(res=>{
-        const bp = priceStringify(res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)])
+        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)] : res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] 
+        const bp = priceStringify(p);
         price.tradPrice = bp;
     });
     await axios.get("http://localhost:8080/getPasarModern").then(res=>{
-        const bp = priceStringify(res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)])
+        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)] : res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] 
+        const bp = priceStringify(p);
         price.modPrice = bp;
     });
     await axios.get("http://localhost:8080/getPedagangBesar").then(res=>{
-        const bp = priceStringify(res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)])
+        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)] : res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] 
+        const bp = priceStringify(p);
         price.pedPrice=bp;
     });
     await axios.get("http://localhost:8080/getProdusen").then(res=>{
-        const bp = priceStringify(res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)])
+        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)] : res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] 
+        const bp = priceStringify(p);
         price.prodPrice = bp;
     });
     return {"trad": price.tradPrice, "mod": price.modPrice, "ped": price.pedPrice, "prod": price.prodPrice};

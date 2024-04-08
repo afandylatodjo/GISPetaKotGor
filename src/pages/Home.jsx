@@ -19,12 +19,12 @@ const Home = () =>{
         <>
             <div className={`cont flex justify-center absolute z-10 transition-transform ${toggle != false ? '' : '-translate-x-[26vw] z-50'}`}>
                 <div className={`chart bg-[#232c31] w-[26vw] h-[100vh]`}>
-                    <div className="item p-4 flex-col  h-full ">
+                    <div className="item p-4 h-full ">
                         <PieChart  onFetch={getData} fetchCallback={fetchCallback}/>
                         <BarChart  onFetch={getData} fetchCallback={fetchCallback}/>
                     </div>
                 </div>
-                <button className={`bg-[#232c31] px-1 transition ease-in duration-[1000ms] ${showToggle != false ? 'opacity-50': 'opacity-0 pointer-events-none'}`} onClick={()=>setToggle(!toggle)}>
+                <button className={`bg-[#232c31] px-1 transition ease-in duration-[500ms] hover:opacity-100 ${showToggle != false ? 'opacity-20': 'opacity-0 pointer-events-none'}`} onClick={()=>setToggle(!toggle)}>
                     ▶
                 </button>
             </div>
