@@ -30,6 +30,9 @@
     ```
 4. Buka browser dan akses http://localhost:5173
 
+## Backend
+Back-End dari proyek ini dapat diakses di [sini](https://github.com/afandylatodjo/GISKotGor-BE)
+
 ------
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
