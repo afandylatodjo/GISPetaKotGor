@@ -14,10 +14,10 @@ const BarChart = ({onFetch, fetchCallback})=>{
 
     useEffect(()=>{
         onFetch().then((res)=>{
-            setBerasTradPrice(res.trad);
-            setBerasModPrice(res.mod);
-            setBerasPedPrice(res.ped);
-            setBerasProdPrice(res.prod);
+            setBerasTradPrice({"date": res.trad.date, "price": res.trad.price});
+            setBerasModPrice({"date": res.mod.price, "price": res.mod.price});
+            setBerasPedPrice({"date": res.ped.date, "price": res.ped.price});
+            setBerasProdPrice({"date": res.prod.date, "price": res.prod.price});
             fetchCallback()
         })
     }, [])
@@ -33,7 +33,7 @@ const BarChart = ({onFetch, fetchCallback})=>{
                             title:{
                                 display: true,
                                 color: "rgb(122,122,122)",
-                                text: "Bar Chart Harga Beras Kota Gorontalo"
+                                text: `Bar Chart Harga Beras Kota Gorontalo per ${berasTradPrice.date}`
                             }
                         }}
                     }
@@ -41,7 +41,7 @@ const BarChart = ({onFetch, fetchCallback})=>{
                         labels: ['Pasar Tradisional','Pasar Modern','Pedagang Besar', 'Produsen'],
                         datasets: [{
                             label: 'Harga Beras',
-                            data: [berasTradPrice, berasModPrice, berasPedPrice, berasProdPrice],
+                            data: [berasTradPrice.price, berasModPrice.price, berasPedPrice.price, berasProdPrice.price],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.5)',
                                 'rgba(54, 162, 235, 0.5)',

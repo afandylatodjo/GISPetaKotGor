@@ -10,17 +10,17 @@ const Home = () =>{
 
     const [showToggle, setShowToggle] = useState(false);
 
-    // useEffect(()=>(getData), []);
     const fetchCallback = () =>{
         setShowToggle(true)
     }
 
     return (
         <>
-            <div className={`cont flex justify-center absolute z-10 transition-transform ${toggle != false ? '' : '-translate-x-[26vw] z-50'}`}>
-                <div className={`chart bg-[#232c31] w-[26vw] h-[100vh]`}>
-                    <div className="item p-4 h-full ">
+            <div className={`cont flex justify-center absolute z-10 transition-transform ${toggle != false ? '' : '-translate-x-[382px] z-50'}`}>
+                <div className={`chart bg-[#232c31] w-[382px] h-[100vh]`}>
+                    <div className="item py-16 px-2 h-full ">
                         <PieChart  onFetch={getData} fetchCallback={fetchCallback}/>
+                        <br />
                         <BarChart  onFetch={getData} fetchCallback={fetchCallback}/>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ const Home = () =>{
                     <div className="desc">
                     <strong>Selamat Datang</strong>
                     <br />
-                    SIGPetaKotGor Merupakan Sebuah Sistem Yang Memuat Data dan Informasi Pertanian di Kota Gorontalo Dalam Bentuk Spasial dan Tabular
+                    SIGPetaKotaGorontalo Merupakan Sebuah Sistem Yang Memuat Data dan Informasi Pertanian di Kota Gorontalo Dalam Bentuk Spasial dan Tabular
                     <br /><br />
                     </div>
                 </div>

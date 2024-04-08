@@ -14,6 +14,7 @@ function sumPrice(prices){
 } 
 
 let price = {
+    "priceDate": null,
     "tradPrice": null,
     "modPrice": null,
     "pedPrice": null,
@@ -22,26 +23,33 @@ let price = {
 
 async function getData(){
     await axios.get("http://localhost:8080/getPasarTradisional").then(res=>{
-        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)] : res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] 
-        const bp = priceStringify(p);
+        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? {"date": Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2),"price": res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)]} : {"date": Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1),"price": res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)]}
+
+        const bp = priceStringify(p.price);
         price.tradPrice = bp;
+        price.priceDate = p.date
+        
     });
     await axios.get("http://localhost:8080/getPasarModern").then(res=>{
-        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)] : res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] 
-        const bp = priceStringify(p);
+        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? {"date": Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2),"price": res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)]} : {"date": Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1),"price": res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)]}
+
+        const bp = priceStringify(p.price);
         price.modPrice = bp;
+        price.priceDate = p.date
     });
     await axios.get("http://localhost:8080/getPedagangBesar").then(res=>{
-        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)] : res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] 
-        const bp = priceStringify(p);
-        price.pedPrice=bp;
+        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? {"date": Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2),"price": res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)]} : {"date": Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1),"price": res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)]}
+        const bp = priceStringify(p.price);
+        price.pedPrice = bp;
+        price.priceDate = p.date
     });
     await axios.get("http://localhost:8080/getProdusen").then(res=>{
-        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)] : res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] 
-        const bp = priceStringify(p);
+        const p =  res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)] === '-' ? {"date": Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2),"price": res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-2)]} : {"date": Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1),"price": res.data[0][Object.keys(res.data[0]).at(Object.keys(res.data[0]).length-1)]}
+        const bp = priceStringify(p.price);
         price.prodPrice = bp;
+        price.priceDate = p.date
     });
-    return {"trad": price.tradPrice, "mod": price.modPrice, "ped": price.pedPrice, "prod": price.prodPrice};
+    return {"trad": {"date": price.priceDate, "price":price.tradPrice}, "mod": {"date": price.priceDate, "price":price.modPrice}, "ped": {"date": price.priceDate, "price":price.pedPrice}, "prod": {"date": price.priceDate, "price":price.prodPrice}};
 }
 
 
